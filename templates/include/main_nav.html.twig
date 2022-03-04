@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5">
+	<div class="container-fluid">
+		 
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="d-flex">
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+						{% if app.user %}{{ app.user.email }}{% else %}Mon compte{% endif %}
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="userMenu">
+					{% if app.user %}
+						 
+						<li><a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a></li>
+					{% else %}
+						<li><a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a></li>
+						<li><a class="dropdown-item" href="{{ path('app_register') }}">Créer un compte</a></li>
+					{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
